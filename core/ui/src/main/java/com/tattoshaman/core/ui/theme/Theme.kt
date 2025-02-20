@@ -1,4 +1,4 @@
-package com.tattoshaman.audioplayer.ui.theme
+package com.tattoshaman.core.ui.theme
 
 import android.app.Activity
 import android.os.Build

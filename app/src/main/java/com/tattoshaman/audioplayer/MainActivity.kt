@@ -12,7 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.tattoshaman.audioplayer.ui.theme.AudioPlayerTheme
+import com.tattoshaman.core.ui.theme.AudioPlayerTheme
 import com.tattoshaman.player_impl.PlayerPage
 
 class MainActivity : ComponentActivity() {
@@ -20,11 +20,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            AudioPlayerTheme {
+            com.tattoshaman.core.ui.theme.AudioPlayerTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Box(
                         modifier = Modifier.padding(innerPadding)
-                    ){
+                    ) {
                         PlayerPage()
                     }
                 }

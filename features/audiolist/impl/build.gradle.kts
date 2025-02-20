@@ -38,7 +38,12 @@ android {
 
 dependencies {
 
+    implementation(project(":core:ui"))
+    implementation(project(":core:time"))
+
     implementation(libs.kotlinx.collections.immutable)
+    implementation(libs.androidx.constraintlayout.compose)
+    implementation(libs.coil.compose)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

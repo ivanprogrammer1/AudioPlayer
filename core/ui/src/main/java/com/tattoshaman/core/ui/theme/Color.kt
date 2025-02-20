@@ -1,4 +1,4 @@
-package com.tattoshaman.audioplayer.ui.theme
+package com.tattoshaman.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
