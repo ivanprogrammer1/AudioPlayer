@@ -1,6 +1,7 @@
 package com.tattoshaman.features.audiolist
 
 import android.Manifest
+import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.Composable
@@ -13,7 +14,9 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @Composable
-fun AudioListPage() {
+fun AudioListPage(
+    selectMusic: (Uri) -> Unit
+) {
     val viewModel = viewModel<AudioListViewModel>(factory = AudioListDI.factory)
 
     val readStoragePermissionRequest =
@@ -40,7 +43,7 @@ fun AudioListPage() {
     }
 
     val state by viewModel.state.collectAsState()
-    AudioListScreen(state) {
-
-    }
+    AudioListScreen(state, onSelectAudio = {
+        selectMusic(it.uri)
+    })
 }

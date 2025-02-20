@@ -36,32 +36,32 @@ dependencies {
     //media3
 
     // For media playback using ExoPlayer
-    implementation(libs.androidx.media3.exoplayer)
+    api(libs.androidx.media3.exoplayer)
 
     // For exposing and controlling media sessions
-    implementation(libs.androidx.media3.session)
+    api(libs.androidx.media3.session)
 
     // For extracting data from media containers
-    implementation(libs.androidx.media3.extractor)
+    api(libs.androidx.media3.extractor)
 
     // For scheduling background operations using Jetpack Work's WorkManager with ExoPlayer
-    implementation(libs.androidx.media3.exoplayer.workmanager)
+    api(libs.androidx.media3.exoplayer.workmanager)
 
     // For transforming media files
-    implementation(libs.androidx.media3.transformer)
+    api(libs.androidx.media3.transformer)
 
     // Common functionality for reading and writing media containers
-    implementation(libs.androidx.media3.container)
+    api(libs.androidx.media3.container)
     // Common functionality for media database components
-    implementation(libs.androidx.media3.database)
+    api(libs.androidx.media3.database)
     // Common functionality for media decoders
-    implementation(libs.androidx.media3.decoder)
+    api(libs.androidx.media3.decoder)
     // Common functionality for loading data
-    implementation(libs.androidx.media3.datasource)
+    api(libs.androidx.media3.datasource)
     // Common functionality used across multiple media libraries
-    implementation(libs.androidx.media3.common)
+    api(libs.androidx.media3.common)
     // Common Kotlin-specific functionality
-    implementation(libs.androidx.media3.common.ktx)
+    api(libs.androidx.media3.common.ktx)
 
 
     implementation(libs.androidx.core.ktx)

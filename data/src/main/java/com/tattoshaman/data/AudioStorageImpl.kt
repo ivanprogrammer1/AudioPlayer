@@ -4,6 +4,7 @@ import android.content.ContentResolver
 import android.content.ContentUris
 import android.net.Uri
 import android.provider.MediaStore
+import android.util.Log
 import com.tattoshaman.data.entities.AudioEntity
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -32,6 +33,7 @@ class AudioStorageImpl(
                     val duration = cursor.getLong(2)
                     val uri =
                         ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id)
+
 
                     list.add(
                         AudioEntity(

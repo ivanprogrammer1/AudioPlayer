@@ -7,5 +7,5 @@ data class Audio(
     val id: Long,
     val duration: LocalTime,
     val name: String,
-    val path: URI
+    val path: String
 )

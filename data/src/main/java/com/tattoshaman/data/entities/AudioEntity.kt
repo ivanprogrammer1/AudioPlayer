@@ -18,7 +18,7 @@ internal fun AudioEntity.toDomain(): Audio{
     return Audio(
         id = id,
         name = name,
-        path = URI.create(uri.normalizeScheme().path),
+        path = uri.toString(),
         duration = duration.toLocalTime()
     )
 }
