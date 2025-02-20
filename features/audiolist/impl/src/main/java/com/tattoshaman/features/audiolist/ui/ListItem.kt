@@ -9,16 +9,20 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import coil3.compose.AsyncImage
 import com.tattoshaman.core.time.formatString
+import com.tattoshaman.core.ui.theme.AudioPlayerTheme
+import com.tattoshaman.features.audiolist.R
 import com.tattoshaman.features.audiolist.entities.AudioItem
 import com.tattoshaman.features.audiolist.mock.getItems
 
@@ -29,16 +33,20 @@ internal fun ListItem(
     onClick: () -> Unit
 ) {
     ConstraintLayout(
-        modifier = modifier.clip(RoundedCornerShape(10.dp)).clickable(onClick = onClick)
+        modifier = modifier
+            .clip(RoundedCornerShape(10.dp))
+            .clickable(onClick = onClick)
     ) {
         val (image, informationBox, play) = createRefs()
 
         AsyncImage(
-            modifier = Modifier.size(63.dp).constrainAs(image) {
-                start.linkTo(parent.start)
-                top.linkTo(parent.top)
-                bottom.linkTo(parent.bottom)
-            },
+            modifier = Modifier
+                .size(63.dp)
+                .constrainAs(image) {
+                    start.linkTo(parent.start)
+                    top.linkTo(parent.top)
+                    bottom.linkTo(parent.bottom)
+                },
             model = "",
             placeholder = painterResource(com.tattoshaman.core.ui.R.drawable.common_placeholder),
             error = painterResource(com.tattoshaman.core.ui.R.drawable.common_placeholder),
@@ -53,13 +61,19 @@ internal fun ListItem(
             }
         ) {
             Text(
-                text = item.name
+                text = item.name,
+                style = MaterialTheme.typography.titleMedium.copy(
+                    color = MaterialTheme.colorScheme.onBackground
+                )
             )
             
             Spacer(modifier = Modifier.height(2.dp))
             
             Text(
-                text = item.time.formatString()
+                text = item.time.formatString(),
+                style = MaterialTheme.typography.labelMedium.copy(
+                    color = MaterialTheme.colorScheme.onSecondary
+                )
             )
         }
 
@@ -73,7 +87,8 @@ internal fun ListItem(
         ) {
             Icon(
                 painter = painterResource(com.tattoshaman.core.ui.R.drawable.ic_play),
-                contentDescription = null
+                contentDescription = stringResource(R.string.play),
+                tint = MaterialTheme.colorScheme.primary
             )
         }
     }
@@ -82,7 +97,9 @@ internal fun ListItem(
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 private fun PreviewListItem() {
-    ListItem(
-        getItems()[0], modifier = Modifier.fillMaxWidth(), onClick = {}
-    )
+    AudioPlayerTheme {
+        ListItem(
+            getItems()[0], modifier = Modifier.fillMaxWidth(), onClick = {}
+        )
+    }
 }

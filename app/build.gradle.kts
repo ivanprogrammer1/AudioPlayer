@@ -52,6 +52,7 @@ android {
 
 dependencies {
 
+    implementation(project(":core:ui"))
     implementation(project(":core:player"))
     implementation(project(":core:coroutines"))
     implementation(project(":features:player:api"))

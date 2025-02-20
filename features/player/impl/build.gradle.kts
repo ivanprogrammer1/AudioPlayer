@@ -39,6 +39,7 @@ android {
 dependencies {
 
     implementation(project(":core:player"))
+    implementation(project(":core:ui"))
     implementation(project(":core:coroutines"))
 
     // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-viewmodel-compose
