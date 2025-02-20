@@ -2,6 +2,11 @@ package com.tattoshaman.audioplayer
 
 import android.app.Application
 import com.tattoshaman.core.coroutines.CoroutineDispatchers
+import com.tattoshaman.data.AudioRepositoryImpl
+import com.tattoshaman.data.AudioStorageImpl
+import com.tattoshaman.features.audiolist.AudioListVMFactory
+import com.tattoshaman.features.audiolist.GetAudiosUseCase
+import com.tattoshaman.features.audiolist.di.AudioListDI
 import com.tattoshaman.player.PlayerControllerImpl
 import com.tattoshaman.player_impl.PlayerViewModelFactory
 import com.tattoshaman.player_impl.di.PlayerDI
@@ -22,6 +27,17 @@ class AudioApplication: Application() {
         PlayerDI.factory = PlayerViewModelFactory(
             PlayerControllerImpl(this),
             dispatchers
+        )
+
+
+        AudioListDI.factory = AudioListVMFactory(
+            GetAudiosUseCase(
+                AudioRepositoryImpl(
+                    AudioStorageImpl(
+                        contentResolver
+                    )
+                )
+            )
         )
     }
 }

@@ -42,7 +42,6 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":core:coroutines"))
 
-    // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-viewmodel-compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     //Media3

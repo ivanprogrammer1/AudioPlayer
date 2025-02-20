@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.tattoshaman.core.ui.theme.AudioPlayerTheme
+import com.tattoshaman.features.audiolist.AudioListPage
 import com.tattoshaman.player_impl.PlayerPage
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +23,7 @@ class MainActivity : ComponentActivity() {
                     Box(
                         modifier = Modifier.padding(innerPadding)
                     ) {
-                        PlayerPage()
+                        AudioListPage()
                     }
                 }
             }
