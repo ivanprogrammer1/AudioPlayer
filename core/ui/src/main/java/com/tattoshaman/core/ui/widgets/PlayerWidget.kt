@@ -1,4 +1,4 @@
-package com.tattoshaman.player_impl.ui
+package com.tattoshaman.core.ui.widgets
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -11,8 +11,9 @@ import androidx.media3.common.Player
 import androidx.media3.ui.PlayerView
 
 @Composable
-internal fun PlayerWidget(
-    player: Player?
+fun PlayerWidget(
+    player: Player?,
+    modifier: Modifier = Modifier
 ){
     val context = LocalContext.current
     val view by remember{
@@ -23,7 +24,7 @@ internal fun PlayerWidget(
         factory = {
             view
         },
-        modifier = Modifier,
+        modifier = modifier,
         onReset = null,
         onRelease = {
             view.player = null

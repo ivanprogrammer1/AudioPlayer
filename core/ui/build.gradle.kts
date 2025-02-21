@@ -37,6 +37,11 @@ android {
 }
 
 dependencies {
+
+    //media3
+    implementation(project(":core:player"))
+    implementation(libs.androidx.media3.ui)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -45,4 +50,5 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    debugImplementation(libs.ui.tooling)
 }

@@ -59,11 +59,11 @@ dependencies {
     implementation(project(":core:player"))
     implementation(project(":core:coroutines"))
 
-    implementation(project(":features:player:api"))
-    implementation(project(":features:player:impl"))
-    implementation(project(":features:audiolist:impl"))
+    implementation(project(":features:audiolist:api"))
     implementation(project(":features:audiolist:impl"))
 
+
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

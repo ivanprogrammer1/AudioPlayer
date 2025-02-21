@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @Composable
-fun AudioListPage(
+internal fun AudioListPage(
     selectMusic: (Uri) -> Unit
 ) {
     val viewModel = viewModel<AudioListViewModel>(factory = AudioListDI.factory)

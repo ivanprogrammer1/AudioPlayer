@@ -1,49 +1,26 @@
 package com.tattoshaman.audioplayer
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.ui.Modifier
-import androidx.media3.common.MediaItem
+import com.tattoshaman.audioplayer.di.MainDI
+import com.tattoshaman.audioplayer.navigation.MainNavHost
 import com.tattoshaman.core.ui.theme.AudioPlayerTheme
-import com.tattoshaman.features.audiolist.AudioListPage
-import com.tattoshaman.player_impl.PlayerPage
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContent {
             AudioPlayerTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Box(
-                        modifier = Modifier.padding(innerPadding)
-                    ) {
-                        AudioListPage {
-                            DI.controller.getController().get().apply {
-                                Log.d("MyTag", this.toString())
-                                Log.d("MyTag", it.toString())
-
-
-                                contentResolver.openInputStream(it).use {
-                                    it?.read()
-                                    Log.d("MyTag", "Easy peasy")
-                                }
-
-                                setMediaItem(MediaItem.fromUri(it))
-                                prepare()
-                                play()
-                            }
-                        }
-                    }
-                }
+                MainNavHost()
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }

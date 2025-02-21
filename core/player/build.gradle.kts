@@ -34,7 +34,6 @@ android {
 
 dependencies {
     //media3
-
     // For media playback using ExoPlayer
     api(libs.androidx.media3.exoplayer)
 

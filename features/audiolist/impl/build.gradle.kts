@@ -42,6 +42,9 @@ dependencies {
     implementation(project(":core:time"))
     implementation(project(":domain"))
 
+    implementation(project(":features:audiolist:api"))
+    implementation(libs.androidx.navigation.compose)
+
     implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     implementation(libs.kotlinx.collections.immutable)

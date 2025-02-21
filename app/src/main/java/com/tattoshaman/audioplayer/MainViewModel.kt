@@ -1,4 +1,4 @@
-package com.tattoshaman.player_impl
+package com.tattoshaman.audioplayer
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.withContext
 
-internal class PlayerViewModel(
+class MainViewModel(
     private val playerController: PlayerController,
     private val dispatchers: CoroutineDispatchers
 ) : ViewModel() {
@@ -31,11 +31,11 @@ internal class PlayerViewModel(
     }
 }
 
-class PlayerViewModelFactory(
+class MainVMFactory(
     private val playerController: PlayerController,
     private val dispatchers: CoroutineDispatchers
-): ViewModelProvider.Factory{
+) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return PlayerViewModel(playerController, dispatchers) as T
+        return MainViewModel(playerController, dispatchers) as T
     }
 }
