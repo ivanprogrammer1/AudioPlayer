@@ -1,5 +1,6 @@
 package com.tattoshaman.features.audiolist.ui
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -72,7 +73,7 @@ internal fun ListItem(
             )
             
             Spacer(modifier = Modifier.height(2.dp))
-            
+
             Text(
                 text = item.time.formatString(),
                 style = MaterialTheme.typography.labelMedium.copy(
@@ -83,6 +84,7 @@ internal fun ListItem(
 
         IconButton(
             onClick = {},
+            enabled = false,
             modifier = Modifier.constrainAs(play) {
                 top.linkTo(parent.top)
                 end.linkTo(parent.end)

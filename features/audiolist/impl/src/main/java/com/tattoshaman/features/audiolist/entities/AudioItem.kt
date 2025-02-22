@@ -16,6 +16,6 @@ internal fun Audio.toUI(): AudioItem {
         id = id,
         name = name,
         uri = Uri.parse(path),
-        time = LocalTime.of(0, 0)
+        time = duration
     )
 }
