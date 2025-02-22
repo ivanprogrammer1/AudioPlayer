@@ -25,6 +25,7 @@ internal fun AudioListPage(
         }
 
     LaunchedEffect(Unit) {
+        viewModel.subscribeOnController()
         launch {
             viewModel.effect.collectLatest {
                 when (it) {

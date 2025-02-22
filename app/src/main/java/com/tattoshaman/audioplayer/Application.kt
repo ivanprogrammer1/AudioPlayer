@@ -1,7 +1,8 @@
 package com.tattoshaman.audioplayer
 
 import android.app.Application
-import com.tattoshaman.audioplayer.di.MainDI
+import com.tattoshaman.audioplayer.composable.di.MainDI
+import com.tattoshaman.audioplayer.composable.MainVMFactory
 import com.tattoshaman.core.coroutines.CoroutineDispatchers
 import com.tattoshaman.data.AudioRepositoryImpl
 import com.tattoshaman.data.AudioStorageImpl
@@ -20,6 +21,7 @@ class AudioApplication: Application() {
     private fun initDI(){
         val controller = PlayerControllerImpl(this)
 
+        MainDI.controllerLifecycle = controller
         MainDI.factory = MainVMFactory(
             controller,
             CoroutineDispatchers(
@@ -34,8 +36,8 @@ class AudioApplication: Application() {
                         contentResolver
                     )
                 )
-            )
+            ),
+            playerController = controller
         )
     }
-
 }

@@ -29,6 +29,7 @@ internal fun AudioListScreen(
         items(state.list) {
             ListItem(
                 item = it,
+                isSelected = state.selectedItem == it,
                 modifier = Modifier.fillMaxWidth(),
                 onClick = { onSelectAudio(it) }
             )
@@ -40,9 +41,11 @@ internal fun AudioListScreen(
 @Composable
 private fun PreviewAudioListScreen() {
     AudioPlayerTheme {
-        AudioListScreen(State(
-            list = getItems()
-        )) {
+        AudioListScreen(
+            State(
+                list = getItems()
+            )
+        ) {
 
         }
     }

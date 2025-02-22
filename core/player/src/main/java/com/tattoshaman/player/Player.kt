@@ -1,10 +1,12 @@
 package com.tattoshaman.player
 
 import androidx.media3.session.MediaController
-import java.util.concurrent.Future
 
-interface PlayerController{
+interface PlayerController {
+    suspend fun getController(): MediaController
+}
+
+interface PlayerLifecycle {
     fun onCreate()
-    fun getController(): Future<MediaController>
     fun onDestroy()
 }

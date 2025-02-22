@@ -1,5 +1,6 @@
 package com.tattoshaman.features.audiolist.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -14,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,6 +31,7 @@ import com.tattoshaman.features.audiolist.mock.getItems
 @Composable
 internal fun ListItem(
     item: AudioItem,
+    isSelected: Boolean,
     modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
@@ -36,6 +39,7 @@ internal fun ListItem(
         modifier = modifier
             .clip(RoundedCornerShape(10.dp))
             .clickable(onClick = onClick)
+            .background(isSelected.colorChecked())
     ) {
         val (image, informationBox, play) = createRefs()
 
@@ -99,7 +103,7 @@ internal fun ListItem(
 private fun PreviewListItem() {
     AudioPlayerTheme {
         ListItem(
-            getItems()[0], modifier = Modifier.fillMaxWidth(), onClick = {}
+            getItems()[0], modifier = Modifier.fillMaxWidth(), isSelected = true, onClick = {}
         )
     }
 }
