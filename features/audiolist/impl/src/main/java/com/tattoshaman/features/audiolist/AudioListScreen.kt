@@ -5,11 +5,14 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.tattoshaman.core.ui.theme.AudioPlayerTheme
+import com.tattoshaman.core.ui.utils.getGradientResource
 import com.tattoshaman.features.audiolist.entities.AudioItem
 import com.tattoshaman.features.audiolist.mock.getItems
 import com.tattoshaman.features.audiolist.ui.ListItem
@@ -26,12 +29,13 @@ internal fun AudioListScreen(
         ),
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        items(state.list) {
+        itemsIndexed(state.list) {index, item ->
             ListItem(
-                item = it,
-                isSelected = state.selectedItem == it,
+                item = item,
+                imagePainter = painterResource(getGradientResource(index)),
+                isSelected = state.selectedItem == item,
                 modifier = Modifier.fillMaxWidth(),
-                onClick = { onSelectAudio(it) }
+                onClick = { onSelectAudio(item) }
             )
         }
     }
